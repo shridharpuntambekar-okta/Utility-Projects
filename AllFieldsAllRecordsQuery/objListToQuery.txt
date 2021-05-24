@@ -1,0 +1,4 @@
+Account
+SomeCustomObject__c
+ACustomSetting__c
+ACustomMetadata__c

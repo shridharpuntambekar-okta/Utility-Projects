@@ -1,0 +1,8 @@
+*.code-workspace
+*.csv
+*.xml
+*/*/access_tokens.json
+*/*/auth_params.json
+RetrieveReportsMetadata/GetReportsXML/ignore_genReportXML.py
+RetrieveEmailTemplatesMD/
+LeadConvertFileDiff/config.py

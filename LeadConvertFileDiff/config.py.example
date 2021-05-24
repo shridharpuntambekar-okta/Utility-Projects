@@ -1,0 +1,3 @@
+GIT_ACCESS_TOKEN="<GITHUB_PERSONAL_ACCESS_TOKEN>"#ghp_1234567..."
+LEAD_CONVERT_FILE_PATH=r"force-app/main/default/LeadConvertSettings/LeadConvertSettings.LeadConvertSetting-meta.xml"
+SALESFORCE_GIT_REPO=r"<NAME_OF_THE_REPO_WHICH_HAS_SALESFORCE_FOLDER_STRUCTURE>" # full name | when you open the repo page on github, add the part after https://github.com/<REPO_NAME> 
