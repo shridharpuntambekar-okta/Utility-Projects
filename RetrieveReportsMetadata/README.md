@@ -35,9 +35,11 @@ sfdx force:org:list
 * Open `retrieveMD.sh` and update the `batchSize` variable. Keep it below < 6500
 * Open `offset.txt` and set it as `0, <batch_size_you_entered_before>`
 
---
-**Execution**
-Navigate to `GetReportsXML` folder in terminal and enter
+---
+
+### Execution
+* Navigate to `GetReportsXML` folder in terminal and enter following commands
+`chmod +x retrieveMD.sh`
 `source retrieveMD.sh`
 
 

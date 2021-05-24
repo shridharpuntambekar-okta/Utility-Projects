@@ -31,7 +31,12 @@ You should have Python3 installed on your machine and set up in your environment
 
 * Populate the desired objects to query in the `objListToQuery.txt` file. Use API names of objects and one per line. Remove whitespaces and new lines.
 
-* To execute navigate to the base folder in terminal and enter following command
+---
+### Execution
+
+* To execute navigate to the base folder in terminal and enter following command:
+
+`chmod +x scriptToPullData.sh`
 `source scriptToPullData.sh`
 
 ---
