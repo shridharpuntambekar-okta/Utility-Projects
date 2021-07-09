@@ -8,6 +8,10 @@ main(){
     function_destroy_tmp_dir
 }
 
+function_create_queried_recs_folder_if_not_exist(){
+    mkdir -p queriedRecords
+}
+
 function_create_tmp_dir(){
     mkdir ".tmp"
 }
@@ -18,7 +22,7 @@ function_destroy_tmp_dir(){
 
 function_instantiate_global_variables(){
     objectToQuery=$line
-    sandboxAlias='ShriDevOrg'
+    sandboxAlias='ShriDev'
     csFieldsTempFileName='.tmp/csFieldValues.txt'
     MAX_RECORD_COUNT_PERMISSIBLE=3000
 }
@@ -37,10 +41,10 @@ function_to_validate_record_count(){
 
     echo $countSOQL
 
-    local totalRecordsCount=`sfdx force:data:soql:query -u $sandboxAlias -q $countSOQL --json | jq '.result.records[0].expr0'`
+    local totalRecordsCount=`sfdx force:data:soql:query -u $sandboxAlias -q "$countSOQL" --json | jq '.result.records[0].expr0'`
     echo "TotalRecordCount=$totalRecordsCount"
     echo "Argumentpassed=$1"
-    if (($totalRecordsCount < $1))
+    if ((($totalRecordsCount < $1) && ($totalRecordsCount != 0)))
     then
         return 0
     else
@@ -57,7 +61,7 @@ function_to_query_object_records(){
     echo "queryingActualdata for $1"
     function_read_actualSOQL_file_to_variable
     echo "actualSOQL = $actualSOQL"
-    `sfdx force:data:soql:query -u $sandboxAlias -q $actualSOQL --json > "queriedRecords/${1}.json"`
+    `sfdx force:data:soql:query -u $sandboxAlias -q "$actualSOQL" --json > "queriedRecords/${1}.json"`
 }
 
 function_validate_record_count_and_query_records(){
@@ -66,7 +70,7 @@ function_validate_record_count_and_query_records(){
         function_to_query_object_records $1
         echo "Completed retrieval for $1"
     else
-        echo "More than $MAX_RECORD_COUNT_PERMISSIBLE records found for $1. Exiting"
+        echo "No records, or more than $MAX_RECORD_COUNT_PERMISSIBLE records found for $1. Exiting"
     fi
 }
 
