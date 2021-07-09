@@ -1,5 +1,6 @@
 
 main(){
+    function_create_queried_recs_folder_if_not_exist
     function_create_tmp_dir
     function_instantiate_global_variables $line
     function_to_get_all_fields_for_object $objectToQuery
@@ -9,7 +10,7 @@ main(){
 }
 
 function_create_queried_recs_folder_if_not_exist(){
-    mkdir -p queriedRecords
+    mkdir -p "queriedRecords"
 }
 
 function_create_tmp_dir(){
@@ -22,7 +23,7 @@ function_destroy_tmp_dir(){
 
 function_instantiate_global_variables(){
     objectToQuery=$line
-    sandboxAlias='ShriDev'
+    sandboxAlias='ShriDevOrg'
     csFieldsTempFileName='.tmp/csFieldValues.txt'
     MAX_RECORD_COUNT_PERMISSIBLE=3000
 }
